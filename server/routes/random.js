@@ -1,12 +1,16 @@
 var express = require("express");
 var router = express.Router();
 
+const queries = require("../db/queries");
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("random", { title: "Express" });
 });
 router.get("/1", function (req, res, next) {
-  res.render("random", { title: "1" });
+  queries.getAll().then((profiles) => {
+    res.json(profiles);
+  });
 });
 router.get("/2", function (req, res, next) {
   res.render("random", { title: "2" });
