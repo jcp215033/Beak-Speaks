@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 #{species}
+  p #{location}, #{date}
+  p Confidence rating of: #{rating}/10 (#{votes} votes)
+  img(src=img_url)
+  p #{caption}
+
+  form(id='caption-form')
+    br
+    input(type='text', name='caption')
+    button(type='submit', id='update-button') #{updateButton} Update
+    script(src='/scripts/update.js', type="module")
