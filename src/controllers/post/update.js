@@ -1,20 +1,19 @@
-const { isAuthorized } = require('../../utils/auth-utils');
+const { isAuthorized } = require("../../utils/auth-utils");
 
-const updateUser = async (req, res) => {
+const updateCaption = async (req, res) => {
   const {
     session,
-    db: { User },
+    db: { Post },
     params: { id },
-    body: { username },
+    body: { caption },
   } = req;
 
-  if (!isAuthorized(id, session)) return res.sendStatus(403);
+  const verify = await Post.verifyPoster(id, session.userId);
+  if (!isAuthorized(verify, session)) return res.sendStatus(403);
 
-  const user = await User.find(id);
-  if (!user) return res.sendStatus(404);
-
-  const updatedUser = await user.update(username);
-  res.send(updatedUser);
+  if (verify === Number(0)) return res.sendStatus(403);
+  const updateCaption = await Post.update(Number(id), caption);
+  res.send(caption === updateCaption.caption);
 };
 
-module.exports = updateUser;
+module.exports = updateCaption;

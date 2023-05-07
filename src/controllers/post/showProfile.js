@@ -4,10 +4,14 @@ const showProfile = async (req, res) => {
     db: { Post },
     params: { id },
   } = req;
+
   if (!session.userId) return res.sendStatus(401);
 
-  let me = await Post.findByUsername(id);
-  res.render("profile", me);
+  let prof = await Post.findByUsername(id);
+
+  res.render("genericProfile", prof, function (err, body) {
+    res.send(body);
+  });
 };
 
 module.exports = showProfile;

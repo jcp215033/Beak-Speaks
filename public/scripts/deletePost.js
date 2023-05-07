@@ -2,10 +2,18 @@
 import { deletePostById } from "./global.js";
 
 const main = async () => {
-  document.querySelector("#del").addEventListener("click", async () => {
-    const id = document.querySelector("#id").innerText;
-    deletePostById("/api/posts/" + id);
+  let id;
+
+  const buttons = document.querySelectorAll(".del");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", handleClick, false);
   });
+
+  function handleClick() {
+    id = this.textContent.split("#")[1];
+    deletePostById("/api/posts/" + id);
+  }
 };
 
 main();

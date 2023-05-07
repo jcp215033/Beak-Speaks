@@ -3,7 +3,7 @@ import { newPost, setNav } from "./global.js";
 
 const main = async () => {
   const user = await fetchLoggedInUser();
-  if (!user) return window.location.assign("/user.html");
+  if (!user) return window.location.assign("/home/me");
 
   document
     .querySelector("#create-form")

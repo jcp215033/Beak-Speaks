@@ -15,7 +15,8 @@ html(lang='en')
   h1 Checkout the latest 15 posts!
   mixin post-list(post)
     div
-      h1= post.species
+      h1
+        a(href=`home/posts/${post.post_id}`) #{post.species}
       p #{post.location}, #{post.date}
       p Confidence rating of: #{post.rating}/10 (#{post.votes} votes)
       img(src=post.img_url)

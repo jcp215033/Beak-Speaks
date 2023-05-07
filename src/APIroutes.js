@@ -7,6 +7,8 @@ const checkAuthentication = require("./middleware/check-authentication");
 const Router = express.Router();
 Router.use(addModels);
 
+Router.patch("/posts/:id", postController.update);
+
 Router.get("/cookieCounter", (req, res) => {
   const { session } = req;
   session.viewCount = (session.viewCount || 0) + 1;
@@ -20,7 +22,7 @@ Router.post("/posts", postController.create);
 // Router.get("/profiles/:id", postController.showProfile);
 
 // Read
-Router.get("/home", postController.showHome);
+// Router.get("/home", postController.showHome);
 Router.get("/users", userController.list);
 Router.get("/users/:id", userController.show);
 Router.get("/me", userController.showMe);
@@ -32,6 +34,10 @@ Router.get("/me", userController.showMe);
 // });
 
 // Update
+Router.patch("/posts/:id", postController.update);
+Router.patch("/posts/rate/:id", postController.updateRating);
+// Router.patch("/posts/:id", postController.update);
+
 Router.patch("/users/:id", checkAuthentication, userController.update);
 
 // Delete

@@ -4,14 +4,10 @@ const authUtils = require("../../utils/auth-utils");
 class Post {
   #passwordHash = null;
 
-  // This constructor is used ONLY by the model
-  // to provide the controller with instances that
-  // have access to the instance methods isValidPassword
-  // and update.
   constructor({ id, species, area, date, rating, votes, img_url, caption }) {
     this.id = id;
     this.species = species;
-    this.area = area; //can't use "location" as variable name, don't get confused variable "area" = "location" column
+    this.area = area;
     this.date = date;
     this.rating = rating;
     this.votes = votes;
@@ -34,9 +30,26 @@ class Post {
 
   static async find(id) {
     try {
-      const query = "SELECT * FROM posts WHERE post_id = ?";
+      // if (typeof id !== "number") return null;WHERE post_id = ?
+      const query = `SELECT *
+      FROM users
+      INNER JOIN posts ON users.id = posts.id
+      AND posts.post_id = ?
+      `;
       const rest = await knex.raw(query, [id]);
+      console.log(rest.rows[0]);
       return rest.rows[0];
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+  static async verifyPoster(post_id, id) {
+    try {
+      const query = "SELECT * FROM posts WHERE post_id = ? AND id = ?";
+      const rest = await knex.raw(query, [post_id, id]);
+      return rest.rows[0].id;
     } catch (err) {
       console.error(err);
       return null;
@@ -51,7 +64,6 @@ class Post {
       u.p = p.rows[0];
       const q2 = "SELECT * FROM posts WHERE id = ? ORDER BY post_id DESC";
       let po = await knex.raw(q2, [id]);
-      // console.log(po.rows);
       u.po = po.rows;
       return u;
     } catch (err) {
@@ -95,15 +107,53 @@ class Post {
         caption,
       ]);
       return results.rows[0];
-      // return new Post(post);
     } catch (err) {
       console.error(err);
       return null;
     }
   }
 
-  // isValidPassword = async (password) =>
-  //   authUtils.isValidPassword(password, this.#passwordHash);
+  static async update(id, caption) {
+    try {
+      const query = `UPDATE posts
+      SET caption = ?
+      WHERE post_id = ?
+      RETURNING *`;
+      const results = await knex.raw(query, [caption, id]);
+      return results.rows[0];
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+  static async getRatings(id) {
+    try {
+      const query = `SELECT rating, votes
+      FROM posts
+      WHERE post_id = ?`;
+      const results = await knex.raw(query, [id]);
+      console.log(results.rows[0]);
+      return results.rows[0];
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+  static async updateRating(id, newRating, newVotes) {
+    try {
+      const query = `UPDATE posts
+      SET rating = ?, votes = ?
+      WHERE post_id = ?
+      RETURNING *`;
+      const results = await knex.raw(query, [newRating, newVotes, id]);
+      return results.rows[0].post_id;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
 }
 
 module.exports = Post;

@@ -7,16 +7,7 @@ import {
 } from "./global.js";
 
 const isAuthError = (err) => err.status === 401 || err.status === 403;
-const redirectToLogin = () => window.location.assign("/login.html");
-const renderUsername = (username) => {
-  document.querySelector("#username").textContent = username;
-};
-const renderUserRegion = (region) => {
-  document.querySelector("#region").textContent = region;
-};
-const renderUserBio = (bio) => {
-  document.querySelector("#bio").textContent = bio;
-};
+const redirectToLogin = () => window.location.assign("/home/login");
 
 const main = async () => {
   const a = await handleFetch("/home/me");
@@ -38,21 +29,14 @@ const main = async () => {
     if (err)
       return isAuthError(err)
         ? redirectToLogin()
-        : alert("Something went wrong");
-    // renderUserData(response.username, response.region, response.bio);
-    renderUsername(response.username);
-    renderUserRegion(response.region);
-    renderUserBio(response.bio);
-
+        : alert("Something went wrong, please try again.");
     event.target.reset();
+    window.location.reload();
   });
 
   updateUsernameForm.dataset.userId = user.id;
 
   setNav(!!user);
-  renderUsername(user.username);
-  renderUserRegion(user.region);
-  renderUserBio(user.bio);
 };
 
 main();

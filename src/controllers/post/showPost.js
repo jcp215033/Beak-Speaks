@@ -1,4 +1,4 @@
-const fs = require("fs");
+// const fs = require("fs");
 
 const showPost = async (req, res) => {
   const {
@@ -8,28 +8,14 @@ const showPost = async (req, res) => {
   } = req;
 
   if (!session.userId) return res.sendStatus(401);
-
   let post = await Post.find(id);
+  // console.log("here", post);
+  // let username = await Post.findByUsername(post.id);
+  // post.username = username.p.username;
   console.log(post);
   res.render("post", post, function (err, body) {
-    let obj = { body: body };
-    createHTML(obj.body);
-    res.redirect("/postHTML.html");
+    res.send(body);
   });
-};
-
-const createHTML = async (code) => {
-  await fs.writeFile(
-    "./public/postHTML.html",
-    code,
-    { flag: "w" },
-    function (err) {
-      if (err) return console.error(err);
-      fs.readFile("./public/postHTML.HTML", "utf-8", function (err, data) {
-        if (err) return console.error(err);
-      });
-    }
-  );
 };
 
 module.exports = showPost;

@@ -26,9 +26,8 @@ const signupAndLoginHandler = async (url, form) => {
   const [_response, err] = await handleFetch(url, options);
   if (err) {
     form.reset();
-    return alert("Something went wrong");
-  }
-  window.location.assign("/user.html");
+    return alert("Something went wrong. Make sure your inputs are correct.");
+  } else window.location.assign("/home/me");
 };
 
 //CREATE POST
@@ -38,12 +37,12 @@ const newPost = async (url, form) => {
   const [_response, err] = await handleFetch(url, options); //create post in database
   if (err) {
     form.reset();
-    return alert("Something je?");
+    return alert(
+      "Something went wrong. Make sure you are logged in and your inputs are correct."
+    );
   }
-  options.method = "GET";
-  delete options.body;
-  await handleFetch(`home/posts/${_response.post_id}`, options); //create post HTMl
-  window.location.assign("./postHTML.html");
+  form.reset();
+  window.location.assign(`/home/posts/${_response.post_id}`);
 };
 
 //DELETE POST
@@ -51,17 +50,11 @@ const deletePostById = async (url) => {
   const [_response, err] = await handleFetch(url, {
     method: "DELETE",
   });
-  if (err) return window.location.assign("home/me");
-  window.location.assign("home/me");
-};
-
-//READ HOME
-const loadHome = async () => {
-  console.log("loading");
-  const [response, _err] = await handleFetch("/home", {
-    credentials: "include",
-  });
-  return response;
+  if (err)
+    return alert(
+      "Not authorized to delete this post. Make sure you are logged in or change your account."
+    );
+  return window.location.assign("/home/me");
 };
 
 // READ USER
@@ -72,11 +65,33 @@ const fetchLoggedInUser = async () => {
   return response;
 };
 
+// UPDATE POST
+const updatePost = async (id, caption) => {
+  if (!caption) return alert("Include a caption.");
+
+  const url = `/api/posts/${id}`;
+  const options = getFetchOptions({ caption }, "PATCH");
+  const [response, err] = await handleFetch(url, options);
+  window.location.assign(`/home/me`);
+  return [response, err];
+};
+
+// UPDATE RATING
+const updateRating = async (id, rating) => {
+  if (!rating) return alert("Include a rating.");
+
+  const url = `/api/posts/rate/${id}`;
+  const options = getFetchOptions({ rating }, "PATCH");
+  const [response, err] = await handleFetch(url, options);
+  window.location.assign(`/home/posts/${id}`);
+  return [response, err];
+};
+
 // UPDATE USER
 const updateUsernameHandler = async (form) => {
   const formData = new FormData(form);
   const username = formData.get("username");
-  if (!username) return alert("Username is required");
+  if (!username) return alert("Username is required.");
 
   const url = `/api/users/${form.dataset.userId}`;
   const options = getFetchOptions({ username }, "PATCH");
@@ -90,7 +105,7 @@ const logOutHandler = async () => {
   const [_response, err] = await handleFetch("/api/users/logout", {
     method: "DELETE",
   });
-  if (err) return alert("Something went wrong");
+  if (err) return alert("Something went wrong, try again.");
   window.location.assign("/");
 };
 
@@ -98,14 +113,14 @@ const logOutHandler = async () => {
 const setNav = (hasLoggedInUser) => {
   const loggedOutNavHtml = `<ul>
     <li><a href="/" id='home'>Home</a></li>
-    <li><a href="./signUp.html">Sign Up</a></li>
-    <li><a href="./login.html">Login</a></li>
+    <li><a href="/home/signUp">Sign Up</a></li>
+    <li><a href="/home/login">Login</a></li>
   </ul>`;
 
   const loggedInNavHtml = `<ul>
     <li><a href="/"id='home'>Home</a></li>
-    <li><a href="./post.html">New Post</a></li>
-    <li><a href="./user.html" id='profile'>Profile</a></li>
+    <li><a href="/home/newPost">New Post</a></li>
+    <li><a href="/home/me" id='profile'>Profile</a></li>
   </ul>`;
 
   const navHtml = hasLoggedInUser ? loggedInNavHtml : loggedOutNavHtml;
@@ -119,7 +134,8 @@ Object.assign(window, {
   getFetchOptions,
   fetchLoggedInUser,
   signupAndLoginHandler,
-  loadHome,
+  updatePost,
+  updateRating,
   newPost,
   deletePostById,
   setNav,
@@ -131,8 +147,9 @@ export {
   handleFetch,
   getFetchOptions,
   fetchLoggedInUser,
-  loadHome,
   signupAndLoginHandler,
+  updatePost,
+  updateRating,
   newPost,
   deletePostById,
   setNav,

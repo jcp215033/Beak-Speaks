@@ -4,18 +4,17 @@ const deletePost = async (req, res) => {
     db: { Post },
     params: { id },
   } = req;
+
   const del = await Post.deleteById(id, session.userId);
-  const result = async () => {
-    console.log(del);
-    if (del > 0) {
-      console.log("yes");
-      res.send(200);
+
+  const result = async (r) => {
+    if (r === 0) {
+      return 403;
     } else {
-      console.log("no");
-      res.send(403);
+      return 204;
     }
   };
-  result();
+  res.sendStatus(await result(del));
 };
 
 module.exports = deletePost;
