@@ -10,7 +10,6 @@ const main = async () => {
     .querySelector("#create-form")
     .addEventListener("submit", async (event) => {
       event.preventDefault();
-      console.log(event.target);
       signupAndLoginHandler("/api/users", event.target);
     });
 };

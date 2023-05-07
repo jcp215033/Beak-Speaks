@@ -1,8 +1,21 @@
-extends layout
-
-block content
-  h1 #{species}
-  p #{location}, #{date}
-  p Confidence rating of: #{rating}/10 (#{votes} votes)
-  img(src=img_url)
-  p #{caption}
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet' href='./styles/style.css')
+    script(type='module', src='./scripts/deletePost.js')
+  body
+    nav#main-nav
+      ul
+        li
+          a(href='/' id='home') Home
+        li
+          a(href='./user.html') Profile
+    main
+      h1 #{species}
+      p#id #{post_id}
+      p #{location}, #{date}
+      p Confidence rating of: #{rating}/10 (#{votes} votes)
+      img(src=img_url)
+      p #{caption}
+      button#del Delete Post #{post_id}

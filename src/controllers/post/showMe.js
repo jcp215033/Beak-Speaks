@@ -1,13 +1,29 @@
-const showMe = async (req, res) => {
+const fs = require("fs");
+
+const showProfile = async (req, res) => {
   const {
     session,
     db: { Post },
-    params: { id },
   } = req;
+
   if (!session.userId) return res.sendStatus(401);
 
-  let me = await Post.findByUsername(id);
-  res.render("profile", me);
+  let me = await Post.findByUsername(session.userId);
+
+  res.render("profile", me, function (err, body) {
+    let obj = { body: body };
+    createHTML(obj.body);
+    res.redirect("/user.html");
+  });
 };
 
-module.exports = showMe;
+const createHTML = async (code) => {
+  await fs.writeFile("./public/user.html", code, { flag: "w" }, function (err) {
+    if (err) return console.error(err);
+    fs.readFile("./public/user.HTML", "utf-8", function (err, data) {
+      if (err) return console.error(err);
+    });
+  });
+};
+
+module.exports = showProfile;

@@ -1,15 +1,17 @@
 const create = require("./create");
-// const del = require("./delete");
+const deletePost = require("./delete");
 // const update = require("./update");
-const showPost = require("./showPost");
 const showMe = require("./showMe");
+const showPost = require("./showPost");
+const showProfile = require("./showProfile");
 const showHome = require("./showHome");
 
 module.exports = {
   create,
-  // del,
+  deletePost,
+  showMe,
   // update,
   showHome,
-  showMe,
+  showProfile,
   showPost,
 };

@@ -22,7 +22,7 @@ class Post {
   static async list() {
     try {
       let list = {};
-      const query = "SELECT * FROM posts";
+      const query = "SELECT * FROM posts ORDER BY post_id DESC LIMIT 15";
       let all = await knex.raw(query);
       list.all = all.rows;
       return list;
@@ -49,11 +49,22 @@ class Post {
       const q1 = "SELECT * FROM users WHERE id = ?";
       let p = await knex.raw(q1, [id]);
       u.p = p.rows[0];
-      const q2 = "SELECT * FROM posts WHERE id = ?";
+      const q2 = "SELECT * FROM posts WHERE id = ? ORDER BY post_id DESC";
       let po = await knex.raw(q2, [id]);
+      // console.log(po.rows);
       u.po = po.rows;
-      console.log(u);
       return u;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+  static async deleteById(post_id, id) {
+    try {
+      const query = "DELETE FROM posts WHERE post_id = ? AND id = ?";
+      let result = await knex.raw(query, [post_id, id]);
+      return result.rowCount;
     } catch (err) {
       console.error(err);
       return null;

@@ -35,13 +35,33 @@ const signupAndLoginHandler = async (url, form) => {
 const newPost = async (url, form) => {
   const formData = new FormData(form);
   const options = getFetchOptions(Object.fromEntries(formData.entries()));
-  // console.log(options);
-  const [_response, err] = await handleFetch(url, options);
+  const [_response, err] = await handleFetch(url, options); //create post in database
   if (err) {
     form.reset();
     return alert("Something je?");
   }
-  window.location.assign(`api/posts/${_response.post_id}`);
+  options.method = "GET";
+  delete options.body;
+  await handleFetch(`home/posts/${_response.post_id}`, options); //create post HTMl
+  window.location.assign("./postHTML.html");
+};
+
+//DELETE POST
+const deletePostById = async (url) => {
+  const [_response, err] = await handleFetch(url, {
+    method: "DELETE",
+  });
+  if (err) return window.location.assign("home/me");
+  window.location.assign("home/me");
+};
+
+//READ HOME
+const loadHome = async () => {
+  console.log("loading");
+  const [response, _err] = await handleFetch("/home", {
+    credentials: "include",
+  });
+  return response;
 };
 
 // READ USER
@@ -77,14 +97,15 @@ const logOutHandler = async () => {
 // Nav Helper
 const setNav = (hasLoggedInUser) => {
   const loggedOutNavHtml = `<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="./create.html">Sign Up</a></li>
+    <li><a href="/" id='home'>Home</a></li>
+    <li><a href="./signUp.html">Sign Up</a></li>
     <li><a href="./login.html">Login</a></li>
   </ul>`;
 
   const loggedInNavHtml = `<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="./user.html">Profile</a></li>
+    <li><a href="/"id='home'>Home</a></li>
+    <li><a href="./post.html">New Post</a></li>
+    <li><a href="./user.html" id='profile'>Profile</a></li>
   </ul>`;
 
   const navHtml = hasLoggedInUser ? loggedInNavHtml : loggedOutNavHtml;
@@ -98,7 +119,9 @@ Object.assign(window, {
   getFetchOptions,
   fetchLoggedInUser,
   signupAndLoginHandler,
+  loadHome,
   newPost,
+  deletePostById,
   setNav,
   logOutHandler,
   updateUsernameHandler,
@@ -108,8 +131,10 @@ export {
   handleFetch,
   getFetchOptions,
   fetchLoggedInUser,
+  loadHome,
   signupAndLoginHandler,
   newPost,
+  deletePostById,
   setNav,
   logOutHandler,
   updateUsernameHandler,

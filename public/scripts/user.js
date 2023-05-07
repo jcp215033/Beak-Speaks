@@ -17,13 +17,9 @@ const renderUserRegion = (region) => {
 const renderUserBio = (bio) => {
   document.querySelector("#bio").textContent = bio;
 };
-// const renderUserData = (username, region, bio) => {
-//   document.querySelector("#username").textContent = username;
-//   document.querySelector("#region").textContent = region;
-//   document.querySelector("#bio").textContent = bio;
-// };
 
 const main = async () => {
+  const a = await handleFetch("/home/me");
   const user = await fetchLoggedInUser();
   if (!user) return redirectToLogin();
 
@@ -54,8 +50,6 @@ const main = async () => {
   updateUsernameForm.dataset.userId = user.id;
 
   setNav(!!user);
-  console.log(user);
-  // renderUserData(user.username, user.region, user.bio);
   renderUsername(user.username);
   renderUserRegion(user.region);
   renderUserBio(user.bio);
