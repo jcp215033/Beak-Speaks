@@ -100,6 +100,19 @@ const updateUsernameHandler = async (form) => {
   return [response, err];
 };
 
+// UPDATE POST
+const updatePost = async (form) => {
+  const formData = new FormData(form);
+  const caption = formData.get("caption");
+  if (!caption) return alert("update caption");
+
+  const url = `/api/posts/${form.dataset.id}`;
+  const options = getFetchOptions({ caption }, "PATCH");
+
+  const [response, err] = await handleFetch(url, options);
+  return [response, err];
+};
+
 // DELETE USER
 const logOutHandler = async () => {
   const [_response, err] = await handleFetch("/api/users/logout", {
@@ -155,4 +168,5 @@ export {
   setNav,
   logOutHandler,
   updateUsernameHandler,
+  updatePost,
 };
