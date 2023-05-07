@@ -6,10 +6,11 @@ const renderCaption = (caption) => {
 };
 
 const main = async () => {
+  const user = await fetchLoggedInUser();
   const form = document.querySelector("#caption-form");
 
   form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const captionInput = document.querySelector("input[name=caption]").value;
     const [response, err] = await updatePost(event.target);
 
@@ -18,10 +19,9 @@ const main = async () => {
     event.target.reset();
   });
 
-  form.dataset.id = post.id;
+  form.dataset.id = user.id;
 
-
-  renderCaption(post.caption);
+  renderCaption(user.caption);
 };
 
 main();

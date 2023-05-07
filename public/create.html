@@ -1,36 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/style.css">
-  <script type="module" src="./scripts/create.js"></script>
-  <title>Sign Up</title>
-</head>
-<body>
-  <nav id="main-nav"></nav>
-  <main>
-    <h1 id="sign-up">Sign Up Today!</h1>
-    <form id="create-form" aria-describedby="sign-up">
-
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" autocomplete="username">
-
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" autocomplete="password">
-
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" autocomplete="name">
-
-      <label for="region">Region</label>
-      <input type="text" name="region" id="region" autocomplete="region">
-
-      <label for="bio">Bio</label>
-      <input type="text" name="bio" id="bio" autocomplete="bio">
-
-      <button type="submit">Create User</button>
-    </form>
-  </main>
-</body>
-</html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Make a Post">
+    <meta name="description" content="">
+    <title>Post</title>
+    <link rel="stylesheet" href="styles/nicepage.css" media="screen">
+<link rel="stylesheet" href="styles/create.css" media="screen">
+    <meta name="generator" content="Nicepage 5.9.10, nicepage.com">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    
+    
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Post">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-6d9d"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1200" data-image-height="1200">
+          <img src="images/Pngtreebirdlogo_6948209.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-palette-2-base u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="background-image: none;">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-base" href="Sign-up.html" style="padding: 10px 20px;">Sign-up</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-2-base u-text-hover-palette-2-base" href="Profile.html" style="padding: 10px 20px;">Profile</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Sign-up.html">Sign-up</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profile.html">Profile</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-align-center u-clearfix u-grey-70 u-section-1" id="sec-7217">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-align-center u-container-style u-expanded-width-xs u-grey-5 u-group u-radius-50 u-shape-round u-group-1">
+          <div class="u-container-layout u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xs u-container-layout-1">
+            <h2 class="u-custom-font u-font-playfair-display u-text u-text-body-color u-text-1">Make <span style="font-weight: 700;">a</span> Post
+            </h2>
+            <div class="u-expanded-width-lg u-form u-form-1">
+              <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-26 u-form-vertical u-inner-form" source="email" name="form-1" style="padding: 10px;">
+                <div class="u-form-group u-form-name">
+                  <label for="species" class="u-label">Species</label>
+                  <input type="text" placeholder="Enter the Species" id="species" name="species" class="u-input u-input-rectangle u-radius-12" required="">
+                </div>
+                <div class="u-form-email u-form-group">
+                  <label for="location" class="u-label">Location</label>
+                  <input type="text" placeholder="Enter a Location" id="location" name="location" class="u-input u-input-rectangle u-radius-12" required="">
+                </div>
+                <div class="u-form-group u-form-group-3">
+                  <label for="text-fbee" class="u-label">Photo</label>
+                  <input type="text" placeholder="Enter Image URL" id="text-fbee" name="text" class="u-input u-input-rectangle u-radius-12">
+                </div>
+                <div class="u-form-group u-form-group-4">
+                  <label for="date" class="u-label">Date</label>
+                  <input type="text" placeholder="Enter Date" id="date" name="date" class="u-input u-input-rectangle u-radius-12">
+                </div>
+                <div class="u-form-group u-form-number u-form-number-layout-number u-form-group-5">
+                  <label for="rating" class="u-label">Rating</label>
+                  <div class="u-input-row" data-value="0">
+                    <input value="0" min="0" max="100" step="1" type="number" placeholder="" id="rating" name="rating" class="u-input u-input-rectangle u-radius-12 u-text-black u-white">
+                  </div>
+                </div>
+                <div class="u-form-group u-form-message">
+                  <label for="caption" class="u-label">Caption</label>
+                  <textarea placeholder="Enter your caption" rows="4" cols="50" id="caption" name="caption" class="u-input u-input-rectangle u-radius-12"></textarea>
+                </div>
+                <div class="u-align-left u-form-group u-form-submit">
+                  <a href="#" class="u-active-palette-2-light-1 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-2-light-1 u-palette-2-base u-radius-12 u-btn-1">Submit</a>
+                  <input type="submit" value="submit" class="u-form-control-hidden">
+                </div>
+               
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-62ed"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">BirdGo</p>
+      </div></footer>
+</body></html>

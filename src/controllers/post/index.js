@@ -4,6 +4,7 @@ const update = require("./update");
 const showPost = require("./showPost");
 const showMe = require("./showMe");
 const showHome = require("./showHome");
+const showMePost = require("./update1");
 
 module.exports = {
   create,
@@ -12,4 +13,5 @@ module.exports = {
   showHome,
   showMe,
   showPost,
+  showMePost,
 };

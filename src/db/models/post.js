@@ -91,12 +91,12 @@ class Post {
     }
   }
 
-  static async update ( id , caption)  {
+  static async update(id, caption) {
     // dynamic queries are easier if you add more properties
     try {
       const query = `UPDATE posts
       SET caption = ?
-      WHERE id = ?
+      WHERE post_id = ?
       RETURNING *`;
       const results = await knex.raw(query, [caption, id]);
       return results.rows[0];
@@ -104,7 +104,7 @@ class Post {
       console.error(err);
       return null;
     }
-  };
+  }
 }
 
 module.exports = Post;

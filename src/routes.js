@@ -9,7 +9,6 @@ Router.use(addModels);
 
 Router.patch("/posts/:id", postController.update);
 
-
 Router.get("/cookieCounter", (req, res) => {
   const { session } = req;
   console.log(session);
@@ -28,6 +27,7 @@ Router.get("/users", userController.list);
 Router.get("/users/:id", userController.show);
 Router.get("/me", userController.showMe);
 Router.get("/home", postController.showHome);
+// Router.get("/posts/:id", postController.showMePost);
 Router.get("/posts/:id", postController.showPost);
 Router.get("/profile/:id", postController.showMe);
 
