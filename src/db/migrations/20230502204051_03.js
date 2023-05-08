@@ -10,8 +10,6 @@ exports.up = function (knex) {
       table.text("password_hash").notNullable();
       table.text("name");
       table.text("region");
-      table.integer("posts_count");
-      table.text("pfp");
       table.text("bio");
     })
     .createTable("posts", function (table) {
@@ -25,12 +23,6 @@ exports.up = function (knex) {
       table.text("img_url").notNullable();
       table.text("caption");
     })
-    .createTable("comments", function (table) {
-      table.increments("comment_id");
-      table.integer("id").references("users.id").notNullable();
-      table.integer("post_id").references("posts.post_id").notNullable();
-      table.text("comment").notNullable();
-    });
 };
 
 /**
@@ -41,5 +33,4 @@ exports.down = function (knex) {
   return knex.schema
     .dropTable("users")
     .dropTable("posts")
-    .dropTable("comments");
 };
