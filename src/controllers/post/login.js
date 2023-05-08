@@ -1,5 +1,5 @@
 const login = async (req, res) => {
-  res.render("login", {}, function (err, body) {
+  res.render("loginHtml", {}, function (err, body) {
     res.send(body);
   });
 };

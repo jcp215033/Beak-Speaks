@@ -13,6 +13,7 @@ const main = async () => {
   const a = await handleFetch("/home/me");
   const user = await fetchLoggedInUser();
   if (!user) return redirectToLogin();
+  setNav(!!user);
 
   const logoutForm = document.querySelector("#logout-form");
   const updateUsernameForm = document.querySelector("#username-form");
@@ -35,8 +36,6 @@ const main = async () => {
   });
 
   updateUsernameForm.dataset.userId = user.id;
-
-  setNav(!!user);
 };
 
 main();

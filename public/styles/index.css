@@ -1,5 +1,5 @@
 .u-section-1 {
-  background-image: url("../images/natureforesttreesfog.jpg");
+  background-image: url("https://getwallpapers.com/wallpaper/full/e/f/a/741453-beautiful-bird-desktop-wallpaper-1920x1263-ipad.jpg");
   background-position: 50% 50%;
 }
 
@@ -43,6 +43,22 @@
   --animation-custom_in-scale: 0.3;
   margin: 56px auto 60px;
   padding: 17px 44px 18px 42px;
+}
+
+.nx {
+  height: 2rem;
+}
+
+.nx ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.nx ul li:first-child {
+  flex-grow: 1;
 }
 
 @media (max-width: 1199px) {

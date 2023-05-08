@@ -42,6 +42,7 @@ class User {
 
   static async findByUsername(username) {
     try {
+      console.log(username, "hey3");
       const query = "SELECT * FROM users WHERE username = ?";
       const {
         rows: [user],

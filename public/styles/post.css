@@ -107,6 +107,22 @@
   .u-section-1 .u-text-12 {
     margin: 17px 22px 0 359px;
   }
+
+  .nx {
+    height: 2rem;
+  }
+  
+  .nx ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nx ul li:first-child {
+    flex-grow: 1;
+  }
   
   @media (max-width: 1199px) {
     .u-section-1 .u-group-1 {

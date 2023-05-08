@@ -2,11 +2,11 @@ body {
   font-family: sans-serif;
 }
 
-nav {
+.nx {
   height: 2rem;
 }
 
-nav ul {
+.nx ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ nav ul {
   gap: 1rem;
 }
 
-nav ul li:first-child {
+.nx ul li:first-child {
   flex-grow: 1;
 }
 

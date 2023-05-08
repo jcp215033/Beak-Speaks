@@ -5,6 +5,7 @@ const loginUser = async (req, res) => {
     body: { username, password },
   } = req;
 
+  console.log(username, password, "dada");
   const user = await User.findByUsername(username);
   if (!user) return res.sendStatus(404);
 

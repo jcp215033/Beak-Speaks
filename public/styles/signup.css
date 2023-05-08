@@ -50,6 +50,22 @@
     border-style: none;
     padding: 16px 30px 17px;
   }
+
+  .nx {
+    height: 2rem;
+  }
+  
+  .nx ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nx ul li:first-child {
+    flex-grow: 1;
+  }
   
   @media (max-width: 1199px) {
     .u-section-1 .u-sheet-1 {

@@ -5,7 +5,7 @@ const main = async () => {
   const user = await fetchLoggedInUser();
   if (user) return window.location.assign("/home/me");
 
-  setNav();
+  setNav(!!user);
   document
     .querySelector("#create-form")
     .addEventListener("submit", async (event) => {

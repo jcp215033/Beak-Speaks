@@ -1,0 +1,58 @@
+doctype html
+html(style='font-size: 16px;' lang='en')
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(charset='utf-8')
+    meta(name='keywords' content='Species, Species')
+    meta(name='description' content='')
+    title Home post
+    link(rel='stylesheet' href='../../styles/nicepage.css' media='screen')
+    link(rel='stylesheet' href='../../styles/post.css' media='screen')
+    script.u-script(type='text/javascript' src='../../scripts/jquery.js' defer)
+    script.u-script(type='text/javascript' src='../../scripts/nicepage.js' defer=)
+    meta(name='generator' content='Nicepage 5.9.10, nicepage.com')
+    link#u-theme-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i')
+    link#u-page-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i')
+    meta(name='theme-color' content='#478ac9')
+    meta(property='og:title' content='Home post')
+    meta(property='og:type' content='website')
+    meta(data-intl-tel-input-cdn-path='intlTelInput/')
+    script(type='module' src='../../scripts/rate.js')
+  body.u-body.u-xl-mode(data-lang='en')
+    header#sec-6d9d.u-clearfix.u-header.u-header
+      .u-clearfix.u-sheet.u-valign-middle.u-sheet-1
+        nav#main-nav.nx
+    section#sec-4902.u-clearfix.u-custom-color-1.u-section-1
+      .u-clearfix.u-sheet.u-sheet-1
+        .u-align-left.u-container-style.u-expanded-width-xs.u-group.u-radius-50.u-shape-round.u-white.u-group-1(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='500')
+          .u-container-layout.u-container-layout-1
+            img#picture.u-image.u-image-default.u-image-1(src=img_url alt='' data-image-width='567' data-image-height='696')
+            //- p#location.u-text.u-text-default.u-text-11 Found Near: #{location}
+            //- p#location.u-text.u-text-default.u-text-11 Spotted On: #{date}
+            //- p#location.u-text.u-text-default.u-text-11 Identification rating of: #{rating}/​10
+            //- p#location.u-text.u-text-default.u-text-11 Votes: #{votes}
+            h2#species.u-text.u-text-default.u-text-1(style = 'color: #db545a;') #{species}
+            p.u-small-text.u-text.u-text-variant.u-text-4 Found Near: #{location}
+            p.u-small-text.u-text.u-text-variant.u-text-4 Spotted On: #{date}
+            p.u-small-text.u-text.u-text-variant.u-text-4 Confidence rating of:
+            p.u-small-text.u-text.u-text-variant.u-text-4(style='font-weight: bold;') #{rating}/​10 
+            p.u-small-text.u-text.u-text-variant.u-text-4 Votes: #{votes}
+            p.u-small-text.u-text.u-text-variant.u-text-4 Posted by: 
+              a(href=`../profiles/${id}`) #{username}
+            p#caption.u-text.u-text-6
+              | #{caption}
+            form#rating.u-clearfix.u-form-spacing-26.u-form-vertical.u-inner-form(aria-describedby='new-post' style='padding: 10px; margin-left: 40%;')
+                .u-form-group.u-form-number.u-form-number-layout-number.u-form-group-5
+                  .u-input-row
+                    input.u-input.u-input-rectangle.u-radius-12.u-text-black.u-white(type='number' name='rating' min="1" max="10" style = 'margin-right: 25px;' required)
+                    button.u-active-palette-2-light-1.u-border-none.u-btn.u-btn-round.u-btn-submit.u-button-style.u-hover-palette-2-light-1.u-palette-2-base.u-radius-12.u-btn-1(type='submit') Rate Post ##{post_id}
+    footer#sec-62ed.u-align-center.u-clearfix.u-footer.u-grey-80.u-footer
+      .u-clearfix.u-sheet.u-sheet-1
+        p.u-small-text.u-text.u-text-variant.u-text-1 ©BirdGo 2023
+        p.u-small-text.u-text.u-text-variant.u-text-1 Contact us on LinkedIn and GitHub:
+        p.u-small-text.u-text.u-text-variant.u-text-1 
+          a(href='https://www.linkedin.com/in/kristen-i-santos/' target="_blank") Kristen 
+          a(href='https://github.com/KristenSantos' target="_blank") Santos 
+        p.u-small-text.u-text.u-text-variant.u-text-1 
+          a(href='https://www.linkedin.com/in/castro-julian/' target="_blank") Julian 
+          a(href='https://github.com/jcp215033' target="_blank") Castro 

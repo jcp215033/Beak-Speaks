@@ -1,6 +1,7 @@
 // Fetch Helpers
 const handleFetch = async (url, options) => {
   try {
+    console.log(url, options);
     const response = await fetch(url, options);
     const { status, statusText, ok } = response;
     if (!ok) return [null, { status, statusText }];
@@ -22,6 +23,7 @@ const getFetchOptions = (body, method = "POST") => ({
 // CREATE USER
 const signupAndLoginHandler = async (url, form) => {
   const formData = new FormData(form);
+  console.log(url, Object.fromEntries(formData.entries()));
   const options = getFetchOptions(Object.fromEntries(formData.entries()));
   const [_response, err] = await handleFetch(url, options);
   if (err) {
@@ -100,19 +102,6 @@ const updateUsernameHandler = async (form) => {
   return [response, err];
 };
 
-// UPDATE POST
-const updatePost = async (form) => {
-  const formData = new FormData(form);
-  const caption = formData.get("caption");
-  if (!caption) return alert("update caption");
-
-  const url = `/api/posts/${form.dataset.id}`;
-  const options = getFetchOptions({ caption }, "PATCH");
-
-  const [response, err] = await handleFetch(url, options);
-  return [response, err];
-};
-
 // DELETE USER
 const logOutHandler = async () => {
   const [_response, err] = await handleFetch("/api/users/logout", {
@@ -124,16 +113,17 @@ const logOutHandler = async () => {
 
 // Nav Helper
 const setNav = (hasLoggedInUser) => {
+  // position: relative; margin-top: -35px;
   const loggedOutNavHtml = `<ul>
-    <li><a href="/" id='home'>Home</a></li>
-    <li><a href="/home/signUp">Sign Up</a></li>
-    <li><a href="/home/login">Login</a></li>
+    <li style = 'position: relative; margin-top: -35px;'><a data-image-width="1200" data-image-height="1200" href="/" class="u-image u-logo u-image-1"><img src="../../images/Pngtreebirdlogo_6948209.png" class="u-logo-image u-logo-image-1"></a></li>
+    <li><a href="/home/signUp" style = 'color: #db545a;'>Sign Up</a></li>
+    <li><a href="/home/login" style = 'color: #db545a;'>Login</a></li>
   </ul>`;
 
   const loggedInNavHtml = `<ul>
-    <li><a href="/"id='home'>Home</a></li>
-    <li><a href="/home/newPost">New Post</a></li>
-    <li><a href="/home/me" id='profile'>Profile</a></li>
+    <li style = 'position: relative; margin-top: -35px;'><a data-image-width="1200" data-image-height="1200" href="/" class="u-image u-logo u-image-1"><img src="../../images/Pngtreebirdlogo_6948209.png" class="u-logo-image u-logo-image-1"></a></li>
+    <li><a href="/home/newPost" style = 'color: #db545a;' >New Post</a></li>
+    <li><a href="/home/me" id='profile' style = 'color: #db545a;'>Profile</a></li>
   </ul>`;
 
   const navHtml = hasLoggedInUser ? loggedInNavHtml : loggedOutNavHtml;
@@ -168,5 +158,4 @@ export {
   setNav,
   logOutHandler,
   updateUsernameHandler,
-  updatePost,
 };

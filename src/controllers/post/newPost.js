@@ -1,5 +1,5 @@
 const showNewPostPage = async (req, res) => {
-  res.render("createPost", {}, function (err, body) {
+  res.render("createHTML", {}, function (err, body) {
     res.send(body);
   });
 };

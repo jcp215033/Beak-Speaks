@@ -142,6 +142,26 @@
     margin: -27px auto 0 277px;
     padding: 10px 28px 10px 27px;
   }
+
+  .nx {
+    height: 2rem;
+  }
+  
+  .nx ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nx ul li:first-child {
+    flex-grow: 1;
+  }
+
+  /* a {
+    color:blue !important;
+  } */
   
   @media (max-width: 1199px) {
     .u-section-1 .u-text-1 {

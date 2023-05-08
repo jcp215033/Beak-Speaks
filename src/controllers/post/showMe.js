@@ -10,7 +10,7 @@ const showProfile = async (req, res) => {
 
   let me = await Post.findByUsername(session.userId);
 
-  res.render("profile", me, function (err, body) {
+  res.render("profileHtml", me, function (err, body) {
     res.send(body);
   });
 };

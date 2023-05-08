@@ -1,0 +1,51 @@
+doctype html
+html(style='font-size: 16px;' lang='en')
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(charset='utf-8')
+    meta(name='keywords' content='BIRD GO, Username, ​Travel with​ us, Log-In, Join our community, ​Working with a reputable travel agent takes the stress out of travel, Make a Post, INTUITIVE')
+    meta(name='description' content='')
+    title Home
+    link(rel='stylesheet' href='../styles/nicepage.css' media='screen')
+    link(rel='stylesheet' href='../../styles/post.css' media='screen')
+    link(rel='stylesheet' href='../styles/index.css' media='screen')
+    script(type='module' src='../scripts/index.js')
+    meta(name='generator' content='Nicepage 5.9.10, nicepage.com')
+    link#u-theme-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i')
+    link#u-page-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i')
+    meta(name='theme-color' content='#478ac9')
+    meta(property='og:title' content='Home')
+    meta(property='og:type' content='website')
+    meta(data-intl-tel-input-cdn-path='intlTelInput/')
+  body.u-body.u-xl-mode(data-lang='en')
+    header#sec-6d9d.u-clearfix.u-header.u-header
+      .u-clearfix.u-sheet.u-valign-middle.u-sheet-1
+        nav#main-nav.nx
+    section#carousel_1a60.u-align-center.u-clearfix.u-image.u-section-1
+      .u-clearfix.u-sheet.u-sheet-1
+        h3.u-custom-font.u-font-montserrat.u-text.u-text-default.u-text-1(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='500')  A community for avian enthusiasts
+        h1.u-custom-font.u-font-montserrat.u-text.u-title.u-text-2(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='0') BIRD GO
+        a.u-active-palette-2-base.u-border-none.u-btn.u-btn-round.u-button-style.u-hover-palette-2-light-2.u-palette-2-base.u-radius-15.u-btn-1(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='500' href='/home/signUp') Get Started
+    section#sec-7565.u-align-center.u-clearfix.u-palette-2-base.u-section-1(style='background-image:none;')
+      h2.u-custom-font.u-font-montserrat.u-text.u-title.u-text-2(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='0') See What Others are Posting!
+      mixin post-list(post)
+        .u-align-left.u-container-style.u-expanded-width-md.u-expanded-width-sm.u-expanded-width-xs.u-group.u-radius-50.u-shape-round.u-white.u-group-2(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='500')
+            .u-container-layout.u-container-layout-2
+              h2.u-text( style = 'text-align:center;')
+                a(href=`home/posts/${post.post_id}` style = 'color: #d9c5ac !important; text-decoration-line: underline !important;') #{post.species} 
+              p#date.u-small-text.u-text.u-text-variant.u-text-12 Found by: #{post.location}
+              p#date.u-small-text.u-text.u-text-variant.u-text-12 Spotted On: #{post.date}
+              p#rating.u-small-text.u-text.u-text-variant.u-text-12 Identification rating of: #{post.rating}/​10 with #{post.votes} votes
+              img#image.u-image.u-image-default.u-image-2(src=post.img_url style = 'width: 600px !important; height: 400px !important;')
+      for each in all
+        +post-list(each)
+    footer#sec-62ed.u-align-center.u-clearfix.u-footer.u-grey-80.u-footer
+      .u-clearfix.u-sheet.u-sheet-1
+        p.u-small-text.u-text.u-text-variant.u-text-1 ©BirdGo 2023
+        p.u-small-text.u-text.u-text-variant.u-text-1 Contact us on LinkedIn and GitHub:
+        p.u-small-text.u-text.u-text-variant.u-text-1 
+          a(href='https://www.linkedin.com/in/kristen-i-santos/' target="_blank") Kristen 
+          a(href='https://github.com/KristenSantos' target="_blank") Santos 
+        p.u-small-text.u-text.u-text-variant.u-text-1 
+          a(href='https://www.linkedin.com/in/castro-julian/' target="_blank") Julian 
+          a(href='https://github.com/jcp215033' target="_blank") Castro 

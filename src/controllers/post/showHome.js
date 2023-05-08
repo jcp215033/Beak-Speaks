@@ -8,7 +8,7 @@ const showMeHome = async (req, res) => {
 
   let home = await Post.list();
 
-  res.render("home", home, function (err, body) {
+  res.render("homeHtml", home, function (err, body) {
     res.send(body);
   });
 };

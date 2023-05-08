@@ -9,7 +9,7 @@ const showProfile = async (req, res) => {
 
   let prof = await Post.findByUsername(id);
 
-  res.render("genericProfile", prof, function (err, body) {
+  res.render("genericProfileHtml", prof, function (err, body) {
     res.send(body);
   });
 };
