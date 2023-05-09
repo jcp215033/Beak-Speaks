@@ -9,7 +9,7 @@ html(style='font-size: 16px;' lang='en')
     link(rel='stylesheet' href='../../styles/nicepage.css' media='screen')
     link(rel='stylesheet' href='../../styles/user.css' media='screen')
     script.u-script(type='text/javascript' src='../../scripts/jquery.js' defer)
-    script.u-script(type='text/javascript' src='../../scripts/nicepage.js' defer=)
+    script.u-script(type='text/javascript' src='../../scripts/nicepage.js' defer)
     meta(name='generator' content='Nicepage 5.9.10, nicepage.com')
     link#u-theme-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i')
     link#u-page-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i')
@@ -27,7 +27,7 @@ html(style='font-size: 16px;' lang='en')
     section#sec-7565.u-align-center.u-clearfix.u-palette-2-base.u-section-1
       .u-clearfix.u-sheet.u-valign-middle-xl.u-sheet-1
         h2#username.u-text.u-text-default.u-text-1(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='500')
-            a(href=`./profiles/${p.id}` style = 'color: #d9c5ac !important; text-decoration-line: underline !important;') #{p.username}
+            a(href=`./profiles/${p.id}` style = 'color: #d9c5ac !important; text-decoration-line: underline !important;') @#{p.username}
         blockquote#bio.u-custom-font.u-font-montserrat.u-text.u-text-3
           | Welcome #{p.name} from #{p.region}.
         blockquote#bio.u-custom-font.u-font-montserrat.u-text.u-text-3

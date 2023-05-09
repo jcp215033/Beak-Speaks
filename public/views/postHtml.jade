@@ -9,7 +9,7 @@ html(style='font-size: 16px;' lang='en')
     link(rel='stylesheet' href='../../styles/nicepage.css' media='screen')
     link(rel='stylesheet' href='../../styles/post.css' media='screen')
     script.u-script(type='text/javascript' src='../../scripts/jquery.js' defer)
-    script.u-script(type='text/javascript' src='../../scripts/nicepage.js' defer=)
+    script.u-script(type='text/javascript' src='../../scripts/nicepage.js' defer)
     meta(name='generator' content='Nicepage 5.9.10, nicepage.com')
     link#u-theme-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i')
     link#u-page-google-font(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i')
@@ -17,7 +17,7 @@ html(style='font-size: 16px;' lang='en')
     meta(property='og:title' content='Home post')
     meta(property='og:type' content='website')
     meta(data-intl-tel-input-cdn-path='intlTelInput/')
-    script(type='module' src='../../scripts/rate.js')
+    script(type='module' src='../../scripts/rate.js' defer)
   body.u-body.u-xl-mode(data-lang='en')
     header#sec-6d9d.u-clearfix.u-header.u-header
       .u-clearfix.u-sheet.u-valign-middle.u-sheet-1
@@ -27,10 +27,6 @@ html(style='font-size: 16px;' lang='en')
         .u-align-left.u-container-style.u-expanded-width-xs.u-group.u-radius-50.u-shape-round.u-white.u-group-1(data-animation-name='customAnimationIn' data-animation-duration='1750' data-animation-delay='500')
           .u-container-layout.u-container-layout-1
             img#picture.u-image.u-image-default.u-image-1(src=img_url alt='' data-image-width='567' data-image-height='696')
-            //- p#location.u-text.u-text-default.u-text-11 Found Near: #{location}
-            //- p#location.u-text.u-text-default.u-text-11 Spotted On: #{date}
-            //- p#location.u-text.u-text-default.u-text-11 Identification rating of: #{rating}/​10
-            //- p#location.u-text.u-text-default.u-text-11 Votes: #{votes}
             h2#species.u-text.u-text-default.u-text-1(style = 'color: #db545a;') #{species}
             p.u-small-text.u-text.u-text-variant.u-text-4 Found Near: #{location}
             p.u-small-text.u-text.u-text-variant.u-text-4 Spotted On: #{date}
@@ -38,7 +34,7 @@ html(style='font-size: 16px;' lang='en')
             p.u-small-text.u-text.u-text-variant.u-text-4(style='font-weight: bold;') #{rating}/​10 
             p.u-small-text.u-text.u-text-variant.u-text-4 Votes: #{votes}
             p.u-small-text.u-text.u-text-variant.u-text-4 Posted by: 
-              a(href=`../profiles/${id}`) #{username}
+              a(href=`../profiles/${id}`) @#{username}
             p#caption.u-text.u-text-6
               | #{caption}
             form#rating.u-clearfix.u-form-spacing-26.u-form-vertical.u-inner-form(aria-describedby='new-post' style='padding: 10px; margin-left: 40%;')

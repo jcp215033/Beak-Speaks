@@ -30,14 +30,12 @@ class Post {
 
   static async find(id) {
     try {
-      // if (typeof id !== "number") return null;WHERE post_id = ?
       const query = `SELECT *
       FROM users
       INNER JOIN posts ON users.id = posts.id
       AND posts.post_id = ?
       `;
       const rest = await knex.raw(query, [id]);
-      console.log(rest.rows[0]);
       return rest.rows[0];
     } catch (err) {
       console.error(err);
@@ -133,7 +131,6 @@ class Post {
       FROM posts
       WHERE post_id = ?`;
       const results = await knex.raw(query, [id]);
-      console.log(results.rows[0]);
       return results.rows[0];
     } catch (err) {
       console.error(err);

@@ -19,25 +19,15 @@ Router.get("/cookieCounter", (req, res) => {
 Router.post("/users", userController.create);
 Router.post("/users/login", userController.login);
 Router.post("/posts", postController.create);
-// Router.get("/profiles/:id", postController.showProfile);
 
 // Read
-// Router.get("/home", postController.showHome);
 Router.get("/users", userController.list);
 Router.get("/users/:id", userController.show);
 Router.get("/me", userController.showMe);
-// Router.get("/profiles/:id", postController.showProfile);
-
-// checkAuthentication middleware is applied to only to this route (and /logged-in-secret)
-// Router.get("/logged-in-secret", checkAuthentication, (req, res) => {
-//   res.send({ msg: "The secret is: there is no secret." });
-// });
 
 // Update
 Router.patch("/posts/:id", postController.update);
 Router.patch("/posts/rate/:id", postController.updateRating);
-// Router.patch("/posts/:id", postController.update);
-
 Router.patch("/users/:id", checkAuthentication, userController.update);
 
 // Delete

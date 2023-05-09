@@ -11,11 +11,9 @@ const main = async () => {
 
   function handleClick(event) {
     event.preventDefault();
-    console.log("clickclickclickclickclickclick");
     let rating = new FormData(event.target);
     rating = Object.fromEntries(rating).rating;
     let id = event.target.textContent.split("#")[1];
-    console.log(id, rating);
     updateRating(id, rating);
     event.target.reset();
   }

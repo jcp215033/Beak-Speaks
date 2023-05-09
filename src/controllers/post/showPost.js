@@ -1,5 +1,3 @@
-// const fs = require("fs");
-
 const showPost = async (req, res) => {
   const {
     session,
@@ -13,6 +11,5 @@ const showPost = async (req, res) => {
     res.send(body);
   });
 };
-//PATCH: /api/posts/rate/299
 
 module.exports = showPost;

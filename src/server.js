@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-// const handleSessions = require('./middleware/handle-sessions');
 const postController = require("./controllers/post");
 const handleCookieSessions = require("./middleware/handle-cookie-sessions");
 const logRoutes = require("./middleware/log-routes");
