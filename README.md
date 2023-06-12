@@ -1,6 +1,6 @@
 # Bird-Go
 
-Bird-Go is a platform for bird enthusiasts, citizen scientists, and bird watchers to share information and foster a sense of community around our avian friends. Users can upload pictures of local birds, have their identification accuracy voted on, and engage with user posts about birds. The website is a valuable resource for learning more about the birds in your area and contributing to a growing database of species. Whether you're a seasoned birder or just starting out, our website is the perfect place to connect with other bird lovers and share your passion for these fascinating creatures.
+Bird-Go is a platform for bird enthusiasts, citizen scientists, and bird watchers to share information and foster a sense of community around our avian friends. Users can upload pictures of local birds, have their identification accuracy voted on, and engage with user sightings of birds.. The website is a valuable resource for learning more about the birds in your area and contributing to a growing database of species. Whether you're a seasoned birder or just starting out, our website is the perfect place to connect with other bird lovers and share your passion for these fascinating creatures.
 
 ## Bird Go Home Page
 
@@ -45,6 +45,15 @@ When exploring other posts you may also access the profile of the poster by clic
 The rating system is useful for validating the accuracy of species identification. Here is an example of an obvious misidentification, notice how the community can moderate it by submitting ratings.
 
 # Development
+
+### Built With
+* ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+* ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+* ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+* ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+* ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+* ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+* ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ## Entity Relationship Diagram
 
