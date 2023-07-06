@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { fetchLoggedInUser, signupAndLoginHandler, setNav } from "./global.js";
 
 const main = async () => {
